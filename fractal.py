@@ -1,6 +1,6 @@
 """Case-study
-Developer:
-Sharkov (100%).
+Developers:
+Sharkov (65%), Ermolenko (35%)
 """
 
 from turtle import *
