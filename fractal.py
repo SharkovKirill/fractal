@@ -1,17 +1,15 @@
 """Case-study
-Developers:
-Sharkov (%), Ermolenko (%).
+Developer:
+Sharkov (100%).
 """
 
 from turtle import *
-import time
-
 
 def koch(order, size):
     if order == 0:
         forward(size)
     else:
-        koch(order - 1, size / 3)  # 1
+        koch(order - 1, size / 3)  # Кривая Коха
         left(60)
         koch(order - 1, size / 3)
         right(120)
@@ -20,9 +18,18 @@ def koch(order, size):
         koch(order - 1, size / 3)
 
 
+def snegkoch(order, size):
+    koch(order, size)              # Снежинка Коха
+    right(120)
+    koch(order, size)
+    right(120)
+    koch(order, size)
+    right(120)
+
+
 def ice1(order, size):
     if order == 0:
-        forward(size)  # 3
+        forward(size)             # Ледяной фрактал(1)
     else:
         ice1(order - 1, size / 2)
         left(120)
@@ -37,8 +44,21 @@ def ice1(order, size):
         ice1(order - 1, size / 2)
 
 
+def ice2(order, size):
+    if order == 0:
+        forward(size)
+    else:
+        ice2(order - 1, size / 2)      # Ледяной фрактал(1)
+        left(90)
+        ice2(order - 1, size / 4)
+        right(180)
+        ice2(order - 1, size / 4)
+        left(90)
+        ice2(order - 1, size / 2)
+
+
 def snegice1(order, size):
-    ice1(order, size)  # 5
+    ice1(order, size)                  # Снежинка к л.ф.(1)
     right(120)
     ice1(order, size)
     right(120)
@@ -51,9 +71,27 @@ def snegice1(order, size):
     ice1(order, size)
 
 
+def snegice2(order, size):
+    ice2(order, size)                   # Снежинка к л.ф.(2)
+    right(90)
+    ice2(order, size)
+    right(90)
+    ice2(order, size)
+    right(90)
+    ice2(order, size)
+    right(180)
+    ice2(order, size)
+    left(90)
+    ice2(order, size)
+    left(90)
+    ice2(order, size)
+    left(90)
+    ice2(order, size)
+
+
 def mink(order, size):
     if order == 0:
-        forward(size)  # 7
+        forward(size)                    # Кривая Минковского
     else:
         mink(order - 1, size / 4)
         left(90)
@@ -71,9 +109,20 @@ def mink(order, size):
         mink(order - 1, size / 4)
 
 
+def levi(order, size):
+    if order == 0:
+        forward(size)
+    else:
+        left(45)
+        levi(order - 1, size / 2)           # Кривая Леви
+        right(90)
+        levi(order - 1, size / 2)
+        left(45)
+
+
 def tree(order, size):
     if order == 0:
-        forward(size)  # 9test
+        forward(size)                       # Двоичное дерево
     else:
         tree(order - 1, size)
         right(30)
@@ -87,11 +136,6 @@ def tree(order, size):
         right(30)
         tree(order - 1, size)
         left(180)
-
-
-# speed('fastest')
-koch(1, 150)
-time.sleep(5)
 
 
 def main():
@@ -123,4 +167,4 @@ def main():
         tree(order, size)
 
 
-#main()
+main()
